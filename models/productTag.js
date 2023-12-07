@@ -9,14 +9,14 @@ class ProductTag extends Model {}
 // Define the ProductTag model's attributes and data types
 ProductTag.init(
   {
-    // 'id' column: Integer, auto-incremented, not null, and set as primary key
+// Creates the ID column making sure the input is an INTEGER + Not Null + is a PK to reference other Models + auto increment the ID value so there are no repeating values
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    // 'product_id' column: Integer, references the 'id' column in the 'product' model
+// created the product_id column in the Product Tag Model... Makes sure datatype entered is an INTEGER and it references the Product Model using the ID Primary Key in that model
     product_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -24,7 +24,7 @@ ProductTag.init(
         key: 'id',
       },
     },
-    // 'tag_id' column: Integer, references the 'id' column in the 'tag' model
+// created the tag_id column in the Product Tag Model... Makes sure datatype entered is an INTEGER and it references the TAG Model using the ID Primary Key in the TAG model
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
