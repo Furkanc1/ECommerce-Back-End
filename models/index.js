@@ -7,11 +7,11 @@ const ProductTag = require('./productTag');
 // Where we define the associations between the models Foreign Keys
 // we add the associations here using belongsTo() in this case it is the foreign keys which relate to the models
 Product.belongsTo(Category, {
-    foreignKey: 'category_id',
+    foreignKey: 'category_id', // Foreign key linking Product to Category
   });
   
   Category.hasMany(Product, {
-    foreignKey: 'category_id',
+    foreignKey: 'category_id', // Foreign key linking Category to multiple Products
   });
   
   Product.belongsToMany(Tag, {
