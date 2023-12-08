@@ -29,7 +29,7 @@ Product.init(
         isDecimal: true,
       },
     },
-// Stock will be its own column which must be an integer + must not be null + (default set to 10) + validated to be a whole number
+// Stock( how many of (insert item here) left im assuming ) will be its own column which must be an integer + must not be null + (default set to 10) + validated to be a whole number
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,

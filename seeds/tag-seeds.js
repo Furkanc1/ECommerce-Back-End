@@ -3,7 +3,7 @@ const { Tag } = require(`../models`);
 
 // we define tagData as an array of data to be used by the database as placeholder information
 const tagData = [
-    { tag_name: 'Comic'},
+    { tag_name: 'ComicBook-Character'},
     { tag_name: 'Fictional'},
     { tag_name: 'Comfy'},
 ];
