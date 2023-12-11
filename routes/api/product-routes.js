@@ -3,7 +3,7 @@ const router = express.Router();
 const { Product, Category } = require(`../../models`)
 
 // route for getting all of the proucts in a certain category
-router.get(`/product`, async ( req, res ) => {
+router.get(`/products`, async ( req, res ) => {
     try {
         const products = await Product.findAll({ include: [Category] });
         res.json(products);
