@@ -8,7 +8,7 @@ class Category extends Model {}
 // Defining the models characteristics or rather specifically the what *attributes + datatypes* are within the category Model
 Category.init(
     {
-        id: {
+        category_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,

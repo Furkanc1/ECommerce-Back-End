@@ -14,7 +14,6 @@ const seedDataBase = async () => {
 
     await seedCategories();
     await seedProducts();
-    await seedProducts();
     await seedProductTags();
     await seedTags();
 };

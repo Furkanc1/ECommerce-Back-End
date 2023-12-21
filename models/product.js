@@ -1,5 +1,6 @@
 // BoilerPlate Code: basically same for each models file. (CREATES SEQUELIZE MODELS FOR CATEGORY INDEX PRODUCT PRODUCT TAG + TAG...JS)
 const { Model, DataTypes } = require('sequelize');
+const Category = require('./category');
 const sequelize = require('../config/connection');
 
 // Creates product MODEL by EXTENDING sequelize's MODEL class:
@@ -44,7 +45,9 @@ Product.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'category',
-        key: 'id',
+        key: 'category_id',
+        onDelete: `CASCADE`,
+        onUpdate: `CASCADE`,
       },
     },
   },
@@ -57,5 +60,9 @@ Product.init(
     modelName: 'product',
   }
 );
+
+Product.belongsTo(Category, {
+  foreignKey: 'category_id',
+});
 
 module.exports = Product;

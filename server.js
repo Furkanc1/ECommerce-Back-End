@@ -17,8 +17,8 @@ app.use( routes );
 
 // Sync Sequelize models to the database
 sequelize.sync({ force: false }).then(() => {
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
+  app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}!`);
   })
 }).catch(( error ) => {
   console.error('Unable to sync Sequelize models:', error);
