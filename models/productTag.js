@@ -19,18 +19,32 @@ ProductTag.init(
 // created the product_id column in the Product Tag Model... Makes sure datatype entered is an INTEGER and it references the Product Model using the ID Primary Key in that model
     product_id: {
       type: DataTypes.INTEGER,
+      // references: {
+      //   model: 'product',
+      //   key: 'id',
+      // },
+      
       references: {
         model: 'product',
         key: 'id',
-      },
+        onDelete: `CASCADE`,
+        onUpdate: `CASCADE`,
+      }
     },
 // created the tag_id column in the Product Tag Model... Makes sure datatype entered is an INTEGER and it references the TAG Model using the ID Primary Key in the TAG model
     tag_id: {
       type: DataTypes.INTEGER,
+      // references: {
+      //   model: 'tag',
+      //   key: 'id',
+      // },
+            
       references: {
         model: 'tag',
         key: 'id',
-      },
+        onDelete: `CASCADE`,
+        onUpdate: `CASCADE`,
+      }
     },
   },
   {

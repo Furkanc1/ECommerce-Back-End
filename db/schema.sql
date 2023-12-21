@@ -15,8 +15,8 @@ INSERT INTO category (category_name) VALUES
   ('Books'),
   ('Clothes');
 
--- selects all rows from the category table
-SELECT * FROM category;
+-- -- selects all rows from the category table
+-- SELECT * FROM category;
 
 -- stores information about individual products
 CREATE TABLE product (
@@ -34,8 +34,8 @@ INSERT INTO product (product_name, price, stock, category_id) VALUES
   ('The Giver', 8.97, 10, 2),
   ('Sweater', 16.99, 8, 3);
 
--- selects all rows from the product table
-SELECT * FROM product;
+-- -- selects all rows from the product table
+-- SELECT * FROM product;
 
 -- stores information about the product tags
 CREATE TABLE tag (
@@ -49,8 +49,8 @@ INSERT INTO tag (tag_name) VALUES
   ('Fictional'),
   ('Comfy');
 
--- selects all rows from the tag table
-SELECT * FROM tag;
+-- -- selects all rows from the tag table
+-- SELECT * FROM tag;
 
 -- represents the many-to-many relationship between products and tags
 CREATE TABLE product_tag (
@@ -67,5 +67,5 @@ INSERT INTO product_tag (product_id, tag_id) VALUES
   (2, 2),
   (3, 3);
 
--- selects all rows from the product_tag table
-SELECT * FROM product_tag;
+-- -- selects all rows from the product_tag table
+-- SELECT * FROM product_tag;
