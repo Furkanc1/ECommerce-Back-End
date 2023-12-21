@@ -1,18 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const { Product, Category } = require(`../../models`);
+const { getProducts } = require('../../helper');
 
 // route for getting all of the proucts in a certain category
-router.get(`/products`, async ( req, res ) => {
-    try {
-        const products = await Product.findAll({ include: [Category] });
-        console.log(`Products`, products);
-        res.json(products);
-    } catch ( error ) {
-        console.log(`error fetching products`, error );
-        res.status(500).json({ error: `server error` });
-    }
-});
+router.get(`/products`, async ( req, res ) => getProducts(req, res));
 
 // will get a product by ID (with its associating category)
 router.get(`/products/:id`, async ( req, res ) => {

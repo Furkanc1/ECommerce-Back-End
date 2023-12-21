@@ -1,18 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const { Tag, ProductTag, Product } = require(`../../models`);
+const { getTags } = require('../../helper');
 
 // will get all the tags with associated products
-router.get(`/tags`, async ( req, res ) => {
-    try{
-        const tags = await Tag.findAll({ 
-            include: [{model: Product, through: ProductTag }] });
-        res.json(tags);
-    } catch (error) {
-        console.log(`error getting tags`, error);
-        res.status(500).json({ error: `server error` });
-    }
-});
+router.get(`/tags`, async ( req, res ) => getTags(req, res));
 
 // gets a tag via its ID and associating products
 router.get(`/tags/:id`, async ( req, res ) => {
