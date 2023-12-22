@@ -50,17 +50,24 @@ router.put(`/tags/:id`, async ( req, res ) => {
     }
 });
 
-router.delete(`/tags/:id`, async ( req, res ) => {
-    try{
-        const tagID = req.params.id;
-        const deletedTag = Tag.destroy({
-            where: { id: tagID },
-        });
-        res.status(200).json( deletedTag );
+router.delete(`/tags/:id`, async (req, res) => {
+    try {
+      const tagID = req.params.id;
+  
+      const deletedRows = await Tag.destroy({
+        where: { id: tagID },
+      });
+  
+      if (deletedRows > 0) {
+        res.status(200).json({ message: 'Tag deleted successfully' });
+      } else {
+        res.status(404).json({ error: 'Tag not found' });
+      }
     } catch (error) {
-        console.log('Error deleting tag by ID:', error);
-        res.status(400).json({ error: 'Invalid request or tag doesnt exist' });
+      console.log('Error deleting tag by ID:', error);
+      res.status(500).json({ error: 'Internal server error' });
     }
-});
+  });
+  
 
 module.exports = router;

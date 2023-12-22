@@ -20,6 +20,25 @@ const getCategories = async (req, res) => {
     }
 }
 
+const getCategoriesById = async (req, res) => {
+    try {
+      const categoryID = req.params.id;
+      const category = await Category.findOne({
+        where: { id: categoryID },
+        include: [Product], // for many products in categories
+      });
+  
+      if (category) {
+        res.json(category);
+      } else {
+        res.status(404).json({ error: `Category does not exist` });
+      }
+    } catch (error) {
+      console.log('Error fetching category by ID:', error);
+      res.status(500).json({ error: 'server error' });
+    }
+  };
+
 const getProducts = async (req, res) => {
     try {
         const products = await Product.findAll({ include: [Category] });
@@ -45,5 +64,6 @@ module.exports = {
     getProducts,
     getCategories,
     getProductTags,
+    getCategoriesById,
     // Add more helper functions
 }
